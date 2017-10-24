@@ -1,0 +1,11 @@
+INSERT INTO Clients (FIRST_NAME, LAST_NAME, DESCRIPTION)
+VALUES
+  ('Bob','Wilson','Description1'),
+  ('Jack','Thompson','Description2'),
+  ('Will','Robinson','Description3');
+
+INSERT INTO PetTypes (NAME)
+VALUES ('Dog'),('Cat'),('Parrot');
+
+INSERT INTO Pets (NAME, PET_TYPE_ID, CLIENT_ID)
+VALUES ('Goofy',1,1),('Bella',2,2),('Charlie',3,3);
