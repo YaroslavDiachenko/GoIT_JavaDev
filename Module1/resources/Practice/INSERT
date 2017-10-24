@@ -9,3 +9,8 @@ VALUES ('Dog'),('Cat'),('Parrot');
 
 INSERT INTO Pets (NAME, PET_TYPE_ID, CLIENT_ID)
 VALUES ('Goofy',1,1),('Bella',2,2),('Charlie',3,3);
+
+INSERT INTO Clients (FIRST_NAME, LAST_NAME, DESCRIPTION)
+VALUES
+  ('Charles','Moore','Description4'),
+  ('Joseph','Anderson','Description5');

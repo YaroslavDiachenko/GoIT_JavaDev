@@ -1,0 +1,5 @@
+DROP TABLE Pets;
+DROP TABLE Clients;
+DROP TABLE PetTypes;
+
+DROP DATABASE Clinic;
