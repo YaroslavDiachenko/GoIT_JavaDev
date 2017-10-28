@@ -1,3 +1,5 @@
+USE Module1_Practice;
+
 INSERT INTO Clients (FIRST_NAME, LAST_NAME, DESCRIPTION)
 VALUES
   ('Bob','Wilson','Description1'),

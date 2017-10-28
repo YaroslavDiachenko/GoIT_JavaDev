@@ -1,4 +1,4 @@
-CREATE DATABASE Clinic;
+USE Module1_Practice;
 
 CREATE TABLE Clients (
   ID          INT,

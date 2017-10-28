@@ -1,2 +1,4 @@
+USE Module1_Practice;
+
 UPDATE Clients SET LAST_NAME = 'Davis' WHERE ID = 1;
 UPDATE PetTypes SET NAME = 'Hamster' WHERE ID = 3;
