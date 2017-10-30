@@ -1,7 +1,9 @@
 # Вибірка даних - 2
 
 # Вибрати розробника з найбільшою кількістю проектів
-
+USE InfoTech;
+DROP TABLE IF EXISTS table1;
+DROP TABLE IF EXISTS table2;
 # first temporary table linked to developer
 CREATE TEMPORARY TABLE table1 AS (
     SELECT FIRST_NAME, LAST_NAME, count(PROJECT_ID) AS projects_count
