@@ -1,0 +1,33 @@
+# Вибірка даних - 2
+
+# Вибрати розробника з найбільшою кількістю проектів
+
+# first temporary table linked to developer
+CREATE TEMPORARY TABLE table1 AS (
+    SELECT FIRST_NAME, LAST_NAME, count(PROJECT_ID) AS projects_count
+    FROM Developer, Project_Developer
+    WHERE Developer.ID = Project_Developer.DEVELOPER_ID
+    GROUP BY FIRST_NAME,LAST_NAME);
+# second temporary table with max projects count
+CREATE TEMPORARY TABLE table2 AS (
+    SELECT max(projects_count) AS max_projects_count FROM table1);
+# joined temporary tables
+SELECT FIRST_NAME, LAST_NAME, max_projects_count FROM table1
+JOIN table2 ON projects_count = max_projects_count;
+# remove temporary tables
+DROP TABLE table1;
+DROP TABLE table2;
+
+
+# Показати розробників із зарплатою, більшою за середню
+SELECT FIRST_NAME,LAST_NAME,SALARY FROM Developer
+WHERE SALARY > (SELECT AVG(SALARY) FROM Developer);
+
+
+# Показати розробника із найменшою зарплатою
+SELECT FIRST_NAME,LAST_NAME,SALARY FROM Developer
+WHERE SALARY = (SELECT min(SALARY) FROM Developer);
+
+
+# Показати імена розробників без повторів
+SELECT DISTINCT FIRST_NAME, LAST_NAME FROM Developer ORDER BY FIRST_NAME, LAST_NAME

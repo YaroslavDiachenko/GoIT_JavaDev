@@ -1,0 +1,53 @@
+# Вибірка даних - 3
+
+# Показати ID і назви проектів, в яких бере участь певний розробник. Два варіанта – без JOIN, з JOIN
+# Варіант 1
+SELECT Project.ID, Project.NAME FROM Project, Developer, Project_Developer
+WHERE Project.ID = Project_Developer.PROJECT_ID
+AND Developer.ID = Project_Developer.DEVELOPER_ID
+AND Developer.FIRST_NAME = 'Bob';
+
+# Варіант 2
+SELECT Project.ID, Project.NAME
+FROM Project
+JOIN Project_Developer ON Project.ID = Project_Developer.PROJECT_ID
+JOIN Developer ON Developer.ID = Project_Developer.DEVELOPER_ID
+AND Developer.FIRST_NAME = 'Bob';
+
+# Показати пари Розробник-Проект. Два варіанта – без JOIN, з JOIN
+# Варіант 1
+SELECT Developer.FIRST_NAME, Developer.LAST_NAME, Project.NAME
+FROM Project, Developer, Project_Developer
+WHERE Project.ID = Project_Developer.PROJECT_ID
+AND Developer.ID = Project_Developer.DEVELOPER_ID
+ORDER BY Developer.ID;
+
+# Варіант 2
+SELECT Developer.FIRST_NAME, Developer.LAST_NAME, Project.NAME
+FROM Project
+JOIN Project_Developer ON Project.ID = Project_Developer.PROJECT_ID
+JOIN Developer ON Developer.ID = Project_Developer.DEVELOPER_ID
+ORDER BY Developer.ID;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
