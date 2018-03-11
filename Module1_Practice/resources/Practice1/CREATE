@@ -1,0 +1,20 @@
+USE Module1_Practice;
+
+CREATE TABLE Clients (
+  ID          INT,
+  FIRST_NAME  VARCHAR(50),
+  LAST_NAME   VARCHAR(50),
+  DESCRIPTION VARCHAR(100)
+);
+
+CREATE TABLE PetTypes (
+  ID   INT,
+  NAME VARCHAR(50)
+);
+
+CREATE TABLE Pets (
+  ID          INT,
+  NAME        VARCHAR(50),
+  PET_TYPE_ID INT,
+  CLIENT_ID   INT
+);

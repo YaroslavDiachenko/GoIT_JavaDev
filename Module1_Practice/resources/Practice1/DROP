@@ -1,0 +1,7 @@
+USE Module1_Practice;
+
+DROP TABLE Pets;
+DROP TABLE Clients;
+DROP TABLE PetTypes;
+
+DROP DATABASE Module1_Practice;

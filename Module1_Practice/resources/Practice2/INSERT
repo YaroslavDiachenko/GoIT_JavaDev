@@ -1,0 +1,30 @@
+USE InfoTech;
+
+INSERT INTO Developer (FIRST_NAME, LAST_NAME, SPECIALTY, SALARY)
+VALUES
+  ('Bob','Wilson','Java',1100),
+  ('Jack','Thompson','C#',2000),
+  ('Will','Robinson','UI/UX',900),
+  ('Bill','Jones','Java',2500),
+  ('Nick','Davis','C#',700);
+
+INSERT INTO Project (NAME, DESCRIPTION)
+VALUES
+  ('Project1','Description1'),
+  ('Project2','Description2'),
+  ('Project3','Description3'),
+  ('Project4','Description4'),
+  ('Project5','Description5');
+
+INSERT INTO Project_Developer (PROJECT_ID, DEVELOPER_ID)
+VALUES
+  (1, 2),
+  (1, 4),
+  (2, 1),
+  (2, 3),
+  (3, 2),
+  (3, 3),
+  (3, 5),
+  (4, 3),
+  (5, 1),
+  (5, 4);
