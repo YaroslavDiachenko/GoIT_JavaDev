@@ -7,13 +7,15 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="com.mycompany.app"/>
+    <tx:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!-- Database Information -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -22,7 +24,6 @@
         <property name="password" value="root"/>
     </bean>
 
-    <!-- Hibernate 4 SessionFactory Bean definition -->
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
@@ -35,36 +36,17 @@
         </property>
     </bean>
 
-    <!--Dao and Service beans-->
-    <bean id="productDao" class="com.mycompany.app.dao.daoimpl.ProductDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <bean id="manufacturerDao" class="com.mycompany.app.dao.daoimpl.ManufacturerDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    <bean id="userDao" class="com.mycompany.app.dao.daoimpl.UserDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    <bean id="productDao"       class="com.mycompany.app.dao.daoimpl.ProductDaoImpl"/>
+    <bean id="manufacturerDao"  class="com.mycompany.app.dao.daoimpl.ManufacturerDaoImpl"/>
+    <bean id="userDao"          class="com.mycompany.app.dao.daoimpl.UserDaoImpl"/>
+    <bean id="roleDao"          class="com.mycompany.app.dao.daoimpl.RoleDaoImpl"/>
 
-    <bean id="productService" class="com.mycompany.app.service.serviceimpl.ProductServiceImpl">
-        <property name="productDao" ref="productDao"/>
-    </bean>
-    <bean id="manufacturerService" class="com.mycompany.app.service.serviceimpl.ManufacturerServiceImpl">
-        <property name="manufacturerDao" ref="manufacturerDao"/>
-    </bean>
-    <bean id="userService" class="com.mycompany.app.service.serviceimpl.UserServiceImpl">
-        <property name="userDao" ref="userDao"/>
-    </bean>
-
-    <tx:annotation-driven/>
-    <context:component-scan base-package="com.mycompany.app"/>
+    <bean id="productService"       class="com.mycompany.app.service.serviceimpl.ProductServiceImpl"/>
+    <bean id="manufacturerService"  class="com.mycompany.app.service.serviceimpl.ManufacturerServiceImpl"/>
+    <bean id="userService"          class="com.mycompany.app.service.serviceimpl.UserServiceImpl"/>
+    <bean id="roleService"          class="com.mycompany.app.service.serviceimpl.RoleServiceImpl"/>
 
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
-
-    <mvc:default-servlet-handler/>
-    <mvc:annotation-driven/>
-
 </beans>

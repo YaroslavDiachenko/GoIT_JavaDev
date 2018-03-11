@@ -20,7 +20,6 @@ public class ProductController {
     private ProductService productService;
     private ManufacturerService manufacturerService;
 
-
     @Autowired(required = true)
     @Qualifier(value = "productService")
     public void setProductService(ProductService productService) {
@@ -32,7 +31,6 @@ public class ProductController {
     public void setManufacturerService(ManufacturerService manufacturerService) {
         this.manufacturerService = manufacturerService;
     }
-
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String listProducts(Model model){

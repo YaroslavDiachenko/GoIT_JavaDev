@@ -19,7 +19,7 @@ public class Manufacturer {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prodManufacturer")
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "prodManufacturer")
     private List<Product> manProducts;
 
     public UUID getId() {

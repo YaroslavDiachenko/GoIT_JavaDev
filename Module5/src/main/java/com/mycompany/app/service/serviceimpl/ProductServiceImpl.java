@@ -3,6 +3,8 @@ package com.mycompany.app.service.serviceimpl;
 import com.mycompany.app.dao.ProductDao;
 import com.mycompany.app.model.Product;
 import com.mycompany.app.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +14,8 @@ import java.util.UUID;
 @Service
 public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
-
+    @Autowired
+    @Qualifier(value = "productDao")
     public void setProductDao(ProductDao productDAO) {
         this.productDao = productDAO;
     }

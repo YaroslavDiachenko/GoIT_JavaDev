@@ -15,5 +15,4 @@ public interface ProductService {
     public Product getProductById(UUID id);
 
     public List<Product> listProducts();
-
 }

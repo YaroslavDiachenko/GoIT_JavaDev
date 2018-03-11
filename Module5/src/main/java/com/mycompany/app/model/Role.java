@@ -2,21 +2,16 @@ package com.mycompany.app.model;
 
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "role")
 public class Role {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "NAME")
     private String name;
-
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
 
     public Role() {
     }
@@ -31,11 +26,5 @@ public class Role {
     }
     public void setName(String name) {
         this.name = name;
-    }
-    public Set<User> getUsers() {
-        return users;
-    }
-    public void setUsers(Set<User> users) {
-        this.users = users;
     }
 }
